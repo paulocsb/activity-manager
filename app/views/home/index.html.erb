@@ -1,0 +1,32 @@
+<div class="page-header">
+	<h1>Gerenciamento de atividades</h1>
+</div>
+<p class="text-muted">
+	Seu dia de trabalho deve começar às 9h com uma parada para o almoço exatamente a 12h, o retorno deve ocorrer às 13h, seu expediente termina às 17h.
+</p>
+<br />
+<div ng-controller="apiController">
+	<div class="alert alert-danger" role="alert" ng-show="alert" ng-bind="alert.error"></div>
+	<form name="myForm" class="form-inline" ng-submit="registerActivity()">
+		<div class="form-group">
+	    <label class="sr-only" for="inputActivity">Atividade</label>
+	    <input type="text" class="form-control" id="inputActivity" name="inputActivity" ng-model="inputActivity" placeholder="Descreva sua atividade" required />
+	  </div>
+	  <button type="submit" class="btn btn-primary">Salvar</button>
+	</form>
+	<hr />
+	<table class="table table-condensed">
+		<thead>
+			<tr>
+				<th>Hora</th>
+				<th>Descrição</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="activity in data.activities">
+				<td ng-bind="activity.time"></td>
+				<td ng-bind="activity.description"></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
